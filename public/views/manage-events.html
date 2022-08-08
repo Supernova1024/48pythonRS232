@@ -1,0 +1,132 @@
+<!-- create form -->
+
+<h1 class="h2 border-bottom text-center">Manage Events</h1>
+<div class="row align-items-center justify-content-center" ng-init="testCtrl.getevents()">
+	<div class="col-md-6 ">
+		<div class="card text-center ">
+			<div class="card-body">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6 col-lg-6">
+							<button type="button" data-toggle="modal" data-target="#eventModal" class="btn btn-outline-primary"><i class="fa fa-fw fa-edit" aria-hidden="true"></i>Add Event</button></a>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<button type="button"  ng-disabled="testCtrl.disable_discipline" data-toggle="modal" data-target="#disciplineModal" class="btn btn-outline-primary"><i class="fa fa-fw fa-edit" aria-hidden="true"></i>Manage discipline</button></a>
+							<!-- <button type="button" ng-click="testCtrl.eventnamedate1()" class="btn btn-outline-primary"><i class="fa fa-fw fa-edit" aria-hidden="true"></i>Manage dicipline</button></a> -->
+						</div>
+					</div>	
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6 col-lg-6">
+							<select class="form-control dual_select" style="height: auto;" size="20">
+								<option value="" disabled style="color: green;">Select Event</option>
+								<option ng-repeat="event in testCtrl.events" value="{{event}}" ng-click="testCtrl.eventnamedatef(event)">{{event}}</option>
+								
+							</select>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<select class="form-control dual_select" style="height: auto;" size="20">
+								<option value="" disabled style="color: green;">Diciplines</option>
+								<option ng-repeat="dicipline_event in testCtrl.diciplines_event" ng-click="testCtrl.dicipline_active(dicipline_event)">{{dicipline_event}}</option>
+							</select>
+						</div>
+					</div>	
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-6 col-lg-6">
+							<button type="button" data-toggle="modal" data-target="#eventdeleteModal" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>  Delete selected event</button></a>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<button type="button" ng-disabled="testCtrl.disable_del_discipline" ng-click="testCtrl.delDiscipline()" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>  Delete selected discipline</button></a>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	<div>
+</div>
+
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="min-width:600px">
+    <div class="modal-content">
+      <div class="modal-header" style="margin:0px auto">
+        <h3 class="modal-title " id="exampleModalLabel">Add Event</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right: 20px; top: 20px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size:20px; padding: 2rem">
+		<div class="row mt-3">
+			<div class="col-md-12"><label class="labels">Event Name</label><input type="text" class="form-control" placeholder="enter event name" ng-model="testCtrl.eventname" value="eventname"></div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-md-12">
+				<label class="labels">Event Date</label>
+				<input class="form-control" placeholder="Event Date/Time" ng-model="testCtrl.eventdate" type="datetime-local" required>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" ng-click="testCtrl.saveevent()" class=" starttest btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="disciplineModal" tabindex="-1" role="dialog" aria-labelledby="disciplineModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="min-width:600px">
+    <div class="modal-content">
+      <div class="modal-header" style="margin:0px auto">
+        <h3 class="modal-title " id="exampleModalLabel">Manage discipline</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right: 20px; top: 20px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size:20px; padding: 2rem">
+		<div class="row mt-3">
+			<div class="col-md-12"><label class="labels">Discipline</label>
+				<!-- <input type="text" class="form-control" placeholder="enter discipline" ng-model="testCtrl.discipline" value="discipline"> -->
+				<select class="form-control dual_select col-md-7" ng-model="testCtrl.discipline" style="font-size: 1rem">
+					<option value="discipline 1">discipline 1</option>
+					<option value="discipline 2">discipline 2</option>
+					<option value="discipline 3">discipline 3</option>
+				</select>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" ng-click="testCtrl.savediscipline()" class=" starttest btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eventdeleteModal" tabindex="-1" role="dialog" aria-labelledby="eventdeleteModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Delete Event</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				Do you really want to delete the event?
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button type="button" ng-click="testCtrl.delevent()" class="testsubmit btn btn-simple">Yes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+

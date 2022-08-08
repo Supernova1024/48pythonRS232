@@ -1,0 +1,94 @@
+<!-- create form -->
+
+<h1 class="h2 border-bottom text-center">Edit the Instructor</h1>
+<form ng-submit="dashCtrl.editUsers('member', selectedUser)" style="margin-top: 30px;">
+	<div class="row align-items-center justify-content-center">
+		<div class="col-md-6 ">
+			<div class="card text-center ">
+				<div class="card-header ">
+					<b>Please Change In The Details</b>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">First Name</label>
+							<input class="form-control col-md-7" placeholder="Enter First Name" ng-model="selectedUser.firstname" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Last Name</label>
+							<input class="form-control col-md-7" placeholder="Enter Last Name" ng-model="selectedUser.lastname" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Initials</label>
+							<input class="form-control col-md-7" placeholder="Enter Initials" ng-model="selectedUser.initials" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Email</label>
+							<input class="form-control col-md-7" placeholder="Enter Email" ng-model="selectedUser.email" type="email" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Sex</label>
+							<select class="form-control dual_select col-md-7" ng-model="selectedUser.sex" style="font-size: 1rem">
+							  <option value="Male">Male</option>
+							  <option value="Female">Female</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Birthday</label>
+							<input class="form-control col-md-7" placeholder="Expired Date/Time" ng-model="selectedUser.birthday" type="datetime-local" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Address</label>
+							<input class="form-control col-md-7" placeholder="Enter Address" ng-model="selectedUser.address" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">City</label>
+							<input class="form-control col-md-7" placeholder="Enter City" ng-model="selectedUser.city" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Zip Code</label>
+							<input class="form-control col-md-7" placeholder="Enter Zip Code" ng-model="selectedUser.zipcode" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<input class="form-control" placeholder="Password" ng-model="selectedUser.password" type="hidden" required>
+						</div>
+					</div>
+					<!-- <input ng-model="userCtrl.password" type="hidden" value="1" required> -->
+					<!-- <input ng-model="userCtrl.role" type="hidden" value="3" required> -->
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-12 col-lg-6 col-md-6">
+								<input class="btn btn-lg btn-primary btn-block" type="submit" value="Edit Member" required>	
+							</div>
+							<div class="col-xs-12 col-lg-6 col-md-6">
+								<input class="btn btn-lg btn-primary btn-block" type="button" ng-click="userCtrl.goMemberList()" value="Cancel" required>	
+							</div>
+							
+							
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+

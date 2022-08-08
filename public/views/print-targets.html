@@ -1,0 +1,66 @@
+<!-- create form -->
+
+<h1 class="h2 border-bottom text-center">Print Targets</h1>
+<form ng-submit="userCtrl.printTargets()" style="margin-top: 30px;">
+	<div class="row align-items-center justify-content-center">
+		<div class="col-md-6 ">
+			<div class="card text-center ">
+				<div class="card-header ">
+					<b>Please select values</b>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Sets to print</label>
+							<select class="form-control dual_select col-md-7" style="font-size: 1rem" ng-model="userCtrl.setstoprint" ng-change="userCtrl.setstoprintf(userCtrl.setstoprint)">
+								<option ng-repeat="n in [].constructor(100) track by $index+1" value="{{$index+1}}">{{$index+1}}</option>
+							</select>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group row">
+							<label class="labels col-md-5">Type of sets</label>
+							<select class="form-control dual_select col-md-7" ng-model="userCtrl.settype" style="font-size: 1rem">
+							  <option value="1">Type 1</option>
+							  <option value="2">Type 2</option>
+							  <option value="3">Type 3</option>
+							  <option value="4">Type 4</option>
+							  <option value="6">Type 6</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<input class="btn btn-lg btn-primary btn-block" type="submit" value="Print" required>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<input class="btn btn-lg btn-primary btn-block" type="button" ng-click="userCtrl.goprintPage()" value="Cancel" required>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div class="modal fade" id="printedModal" tabindex="-1" role="dialog" aria-labelledby="printedModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Printed Successfully!</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+

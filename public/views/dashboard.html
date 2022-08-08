@@ -1,0 +1,110 @@
+
+
+<!-- Navigation-->
+<nav ng-init="dashCtrl.getUserDetail()"  class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: #1b2a47;">
+  <a class="navbar-brand" href="index.html">SHOOT</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class=" collapse navbar-collapse" id="navbarResponsive">
+    <ul class=" navbar-nav navbar-sidenav" id="exampleAccordion">
+      <!-- Photo of User -->
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link" ui-sref="dashboard.index">
+          <img src="/img/logo.png" class="dash_photo" style="width: 50%;">
+        </a>
+      </li>
+      <!-- ----------- -->
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <a class="nav-link" ui-sref="dashboard.index">
+          <i class="fa fa-fw fa-dashboard"></i>
+          <span class=" nav-link-text">Dashboard</span>
+        </a>
+      </li>
+      <li ng-if="role == 'Administrator'" class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin Operations">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" data-target="#collapseAdminPages" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-user"></i>
+          <span class="nav-link-text">Administrator Page</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseAdminPages">
+          <li>
+            <a class="nav-link" ui-sref="dashboard.addadmin">
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text">Add a new Admin</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" ui-sref="dashboard.admins">
+              <i class="fa fa-fw fa-eye"></i>
+              <span class="nav-link-text">View Administrators</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li ng-if="role == 'Administrator'" class="nav-item" data-toggle="tooltip" data-placement="right" title="Member Operations">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" data-target="#collapseMemberPages" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-users"></i>
+          <span class="nav-link-text">Member Page</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseMemberPages">
+          <li>
+            <a class="nav-link" ui-sref="dashboard.addmember">
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text">Add a new Member</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" ui-sref="dashboard.members">
+              <i class="fa fa-fw fa-eye"></i>
+              <span class="nav-link-text">View Members</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li ng-if="role == 'Administrator'" class="nav-item" data-toggle="tooltip" data-placement="right" title="Device Operations">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" data-target="#collapseDevicePages" data-parent="#exampleAccordion">
+          <i class="fa fa-solid fa-bullseye"></i>
+          <span class="nav-link-text">Device Page</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseDevicePages">
+          <li>
+            <a class="nav-link" ui-sref="dashboard.events">
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text">Manage Events</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" ui-sref="dashboard.targets">
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text">Print Targets</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard/profile">
+        <i class="fa fa-fw fa-user"></i>{{name}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ng-click="dashCtrl.logout()">
+        <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+
+    <!--  all the view goes here -->
+    <div ui-view>
+    </div>
+  </div>
+</div>
+
+
+
+
+
